@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<meta name="color-scheme" content="dark">
+<title>GPTTRON — подготовка к соревнованию</title>
+<style>
+:root{--bg:#0b0d12;--panel:#12151d;--panel2:#171b25;--line:#282e3b;--text:#f4f6fb;--muted:#929bad;--accent:#a7f36b;--accent2:#d4ffb2;--bad:#ff7777;--good:#9cf27b;--radius:22px;--gap:clamp(8px,2vw,14px);--pad:clamp(14px,3.5vw,22px);--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px);--sar:env(safe-area-inset-right,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:var(--sat)}
+body{margin:0;background:radial-gradient(ellipse at 50% -15%,#202b35 0,transparent 48%),var(--bg);background-attachment:fixed;color:var(--text);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh;min-height:100dvh;overflow-x:hidden;overflow-wrap:anywhere;padding:var(--sat) var(--sar) 0 var(--sal)}
+button,input,textarea{font:inherit}
+button{cursor:pointer;border:0;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.app{width:min(980px,calc(100% - 2*clamp(12px,4vw,32px)));margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.topbar{min-height:clamp(52px,9vw,76px);display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #ffffff0d;color:var(--muted);font-size:clamp(11px,2.8vw,13px)}
+.brand-mini{font-weight:900;letter-spacing:.16em;color:var(--text)}.brand-mini span{color:var(--accent)}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(20px,5vw,44px) 0 clamp(28px,6vw,56px)}
+.screen{display:none;width:100%;animation:rise .35s ease}.screen.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero{text-align:center;max-width:680px;margin:auto}
+.orb{height:clamp(58px,14vw,74px);width:clamp(58px,14vw,74px);margin:0 auto 22px;border:1px solid #a7f36b65;border-radius:24px;display:grid;place-items:center;background:linear-gradient(145deg,#a7f36b20,#a7f36b04);box-shadow:0 0 70px #a7f36b13}
+.orb svg{width:48%;height:48%}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:15px}
+h1{font-size:clamp(40px,12vw,78px);line-height:1.02;letter-spacing:-.065em;margin:0 0 12px;font-weight:850}h1 .green{color:var(--accent)}
+h2{font-size:clamp(26px,6.5vw,42px);letter-spacing:-.045em;line-height:1.1;margin:0 0 12px}
+.byline{color:#778092;font-size:13px;letter-spacing:.03em;margin-bottom:30px}.byline b{color:#c5cbd7;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#10150c;font-weight:800;padding:14px 22px;border-radius:14px;transition:.18s;min-height:52px;text-align:center;user-select:none;-webkit-user-select:none}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.secondary{background:#202531;color:var(--text);border:1px solid var(--line)}.btn.full{width:100%}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px}
+.step{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.subjects{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin:22px 0 26px}
+.subject{position:relative;text-align:left;min-height:clamp(120px,22vw,150px);padding:var(--pad);border:1px solid var(--line);background:linear-gradient(145deg,var(--panel2),var(--panel));border-radius:18px;color:var(--text);transition:.2s}
+.subject.selected{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:linear-gradient(145deg,#a7f36b15,var(--panel))}
+.subject .emoji{font-size:24px;margin-bottom:clamp(8px,3vw,20px);display:block}.subject strong{display:block;font-size:15px}.subject small{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+.checkmark{position:absolute;right:14px;top:14px;color:var(--accent);display:none}.selected .checkmark{display:block}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin:18px 0 22px}
+.option{display:flex;gap:13px;align-items:center;padding:16px;min-height:64px;border:1px solid var(--line);border-radius:16px;background:var(--panel);cursor:pointer}
+.option:has(input:checked){border-color:var(--accent);background:#a7f36b0b}
+.option:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+.option input{accent-color:var(--accent);width:20px;height:20px;flex-shrink:0}
+.option strong{display:block;font-size:14px}.option small{color:var(--muted);font-size:12px;display:block;margin-top:3px}
+.actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.actions .btn{min-width:150px}
+.quiz-wrap{max-width:760px;margin:auto}
+.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px}
+.quiz-top .btn{min-height:40px;padding:6px 14px;font-size:13px}
+.progress{height:5px;border-radius:8px;background:#242936;overflow:hidden;margin-bottom:clamp(20px,5vw,32px)}.progress-fill{height:100%;width:0;background:var(--accent);transition:width .3s}
+.qmeta{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:#151923;border-radius:100px;padding:5px 10px;font-size:11px;color:#b6bdca}.pill.lime{color:var(--accent);border-color:#a7f36b40}
+.question{font-size:clamp(20px,4.6vw,32px);font-weight:750;letter-spacing:-.035em;line-height:1.25;margin:0 0 22px}
+.answers{display:grid;gap:10px}
+.answer{display:flex;align-items:center;gap:14px;padding:15px 16px;min-height:56px;border-radius:15px;border:1px solid var(--line);background:var(--panel);text-align:left;color:var(--text);width:100%;transition:.15s}
+.answer.selected{border-color:var(--accent);background:#a7f36b0c}
+.letter{width:30px;height:30px;border:1px solid #3b4352;border-radius:9px;display:grid;place-items:center;font-size:12px;color:#aeb6c4;flex-shrink:0}
+.answer.selected .letter{background:var(--accent);border-color:var(--accent);color:#10150c;font-weight:900}
+textarea{display:block;width:100%;min-height:clamp(120px,24vh,180px);resize:vertical;border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px;color:var(--text);outline:none;font-size:16px}
+textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
+.hint{color:var(--muted);font-size:12px;margin-top:10px}
+.result{max-width:720px;margin:auto;text-align:center}
+.score-ring{width:clamp(116px,32vw,142px);height:clamp(116px,32vw,142px);border:8px solid #272e38;border-top-color:var(--accent);border-right-color:var(--accent);border-radius:50%;margin:0 auto 22px;display:grid;place-items:center}
+.score{font-size:clamp(28px,8vw,35px);font-weight:850;letter-spacing:-.06em}.score small{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0}
+.result-copy{color:var(--muted);margin:0 auto 22px;max-width:500px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}
+.stat{padding:16px 8px;background:var(--panel);border:1px solid var(--line);border-radius:15px}.stat strong{font-size:clamp(20px,5vw,24px);display:block}.stat span{font-size:11px;color:var(--muted)}
+.review{margin-top:22px;text-align:left}.review h3{font-size:17px}
+.review-item{padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:10px 0}.r-question{font-weight:700;margin-bottom:7px}.review-item p{margin:5px 0;color:var(--muted);font-size:13px}
+.correct{color:var(--good)!important}.incorrect{color:var(--bad)!important}
+.notice{padding:13px 15px;border:1px solid #a7f36b35;background:#a7f36b09;border-radius:12px;color:#cbd5c1;font-size:12px;margin-top:18px}
+.footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:20px 0 calc(24px + var(--sab));border-top:1px solid #ffffff0d;color:#697283;font-size:11px}
+
+@media(hover:hover){.btn:hover{transform:translateY(-2px);background:var(--accent2);box-shadow:0 10px 30px #a7f36b1c}.btn.secondary:hover{background:#262c3a}.subject:hover{border-color:#697449;transform:translateY(-2px)}.answer:hover{border-color:#656d7c}}
+@media(max-width:860px){.subjects{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){
+ .section-head{align-items:flex-start;flex-direction:column;gap:10px}
+ .options{grid-template-columns:1fr}
+ .actions .btn{min-width:0;flex:1;padding-inline:12px}
+ #quiz .actions{position:sticky;bottom:0;margin:20px calc(-1*clamp(12px,4vw,32px)) 0;padding:12px clamp(12px,4vw,32px) calc(12px + var(--sab));background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:5}
+ .footer{justify-content:center;text-align:center}
+}
+@media(max-width:360px){.subjects{gap:8px}.subject{padding:13px}.subject small{font-size:11px}.stats{gap:6px}.stat{padding:12px 4px}.answer{padding:12px}.topbar>div:last-child{display:none}}
+@media(max-height:500px) and (orientation:landscape){main{align-items:flex-start;padding:16px 0 24px}.topbar{min-height:44px}.orb{display:none}h1{font-size:40px}.byline{margin-bottom:16px}.subject{min-height:96px}.subjects{grid-template-columns:repeat(4,1fr)}.question{margin-bottom:14px}#quiz .actions{position:static;background:none;margin:20px 0 0;padding:0}}
+@media(min-width:1280px){body{font-size:17px}.app{width:min(1040px,calc(100% - 64px))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar"><div class="brand-mini">GPT<span>TRON</span></div><div>Тренажёр знаний <span style="color:#424958">/</span> 2026</div></header>
+<main>
+<section class="screen active" id="welcome">
+ <div class="hero">
+  <div class="orb"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4.5 23.9 15l10.6 4-10.6 4L20 33.5 16.1 23 5.5 19l10.6-4L20 4.5Z" stroke="#a7f36b" stroke-width="1.8" stroke-linejoin="round"/><path d="m30.5 25 1.8 4.7 4.7 1.8-4.7 1.8-1.8 4.7-1.8-4.7-4.7-1.8 4.7-1.8 1.8-4.7Z" fill="#a7f36b"/></svg></div>
+  <h1><span class="green">GPT</span>TRON</h1>
+  <div class="byline"><b>by @Abduaziz</b></div>
+  <button class="btn" onclick="go('subjects')">Продолжить <span>↗</span></button>
+ </div>
+</section>
+
+<section class="screen" id="subjects">
+ <div class="section-head"><div><div class="step">Шаг 01 / 02</div><h2>Выбери предмет</h2><div style="color:var(--muted)">С чего начнём тренировку?</div></div><div class="pill">4 предмета</div></div>
+ <div class="subjects">
+  <button class="subject selected" data-subject="literature" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">📚</span><strong>Литература</strong><small>Тесты и произведения</small></button>
+  <button class="subject" data-subject="biology" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🧬</span><strong>Biologiya</strong><small>Организм и природа</small></button>
+  <button class="subject" data-subject="chemistry" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">⚗️</span><strong>Kimyo</strong><small>Elementlar va reaksiyalar</small></button>
+  <button class="subject" data-subject="history" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🌍</span><strong>История</strong><small>Мир и цивилизации</small></button>
+ </div>
+ <div class="actions"><button class="btn secondary" onclick="go('welcome')">← Назад</button><button class="btn" onclick="go('mode')">Продолжить →</button></div>
+</section>
+
+<section class="screen" id="mode">
+ <div class="section-head"><div><div class="step">Шаг 02 / 02</div><h2>Как будем тренироваться?</h2><div style="color:var(--muted)">Выбери порядок вопросов.</div></div></div>
+ <div class="options">
+  <label class="option"><input type="radio" name="order" value="sequential" checked><span><strong>По порядку</strong><small>Вопросы идут как в исходном списке.</small></span></label>
+  <label class="option"><input type="radio" name="order" value="random"><span><strong>В случайном порядке</strong><small>Перемешать вопросы для новой попытки.</small></span></label>
+ </div>
+ <div class="options">
+  <label class="option"><input type="radio" name="format" value="all" checked><span><strong>Полная тренировка</strong><small>Все вопросы выбранного предмета.</small></span></label>
+  <label class="option"><input type="radio" name="format" value="sprint"><span><strong>Спринт · 10 вопросов</strong><small>Короткая проверка на скорость и точность.</small></span></label>
+ </div>
+ <div class="actions"><button class="btn secondary" onclick="go('subjects')">← Назад</button><button class="btn" id="startBtn" onclick="startQuiz()">Начать тренировку ↗</button></div>
+ <div class="notice">Открытые ответы проверяет ИИ.</div>
+</section>
+
+<section class="screen" id="quiz">
+ <div class="quiz-wrap">
+  <div class="quiz-top"><span id="quizSubject">Литература</span><span id="counter">Вопрос 1 из 10</span><button class="btn secondary" onclick="quitQuiz()">Выйти</button></div>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="qmeta"><span class="pill lime" id="qType">Тест</span><span class="pill" id="qNum">ВОПРОС 01</span></div>
+  <h2 class="question" id="questionText"></h2>
+  <div id="answerArea"></div>
+  <div class="actions"><button class="btn secondary" id="backQuestion" onclick="previousQuestion()">← Назад</button><button class="btn" id="nextQuestion" onclick="nextQuestion()">Ответить →</button></div>
+ </div>
+</section>
+
+<section class="screen" id="results">
+ <div class="result">
+  <div class="score-ring"><div class="score"><span id="scoreNumber">0</span><small> / <span id="scoreTotal">10</span></small></div></div>
+  <div class="eyebrow" id="resultEyebrow">ТРЕНИРОВКА ЗАВЕРШЕНА</div>
+  <h2 id="resultTitle">Хорошая работа!</h2>
+  <p class="result-copy" id="resultCopy"></p>
+  <div class="stats"><div class="stat"><strong id="correctStat">0</strong><span>Правильных</span></div><div class="stat"><strong id="wrongStat">0</strong><span>Нужно повторить</span></div><div class="stat"><strong id="percentStat">0%</strong><span>Результат</span></div></div>
+  <button class="btn full" onclick="showReview()">Разобрать ответы ↓</button>
+  <div class="review" id="review" style="display:none"><h3>Разбор ответов</h3><div id="reviewList"></div></div>
+  <div class="actions"><button class="btn secondary" onclick="go('subjects')">Другой предмет</button><button class="btn" onclick="retryQuiz()">Ещё раз ↻</button></div>
+ </div>
+</section>
+</main>
+<footer class="footer"><span>GPTTRON · Учись. Проверяй. Побеждай.</span><span>by @Abduaziz</span></footer>
+</div>
+<script>
+const LABELS={literature:'Литература',biology:'Biologiya',chemistry:'Kimyo',history:'История'};
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let subject='literature',questions=[],index=0,answers=[],gradedResults=[],busy=false;
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'})}
+function chooseSubject(el){document.querySelectorAll('.subject').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');subject=el.dataset.subject}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+async function startQuiz(){if(busy)return;busy=true;const btn=document.getElementById('startBtn');btn.disabled=true;btn.textContent='Загрузка…';try{const response=await fetch(`/api/questions/${encodeURIComponent(subject)}`);if(!response.ok)throw new Error('Не удалось загрузить вопросы');questions=await response.json();if(document.querySelector('input[name="order"]:checked').value==='random')shuffle(questions);if(document.querySelector('input[name="format"]:checked').value==='sprint')questions=questions.slice(0,10);index=0;answers=Array(questions.length).fill(null);gradedResults=Array(questions.length).fill(null);document.getElementById('quizSubject').textContent=LABELS[subject];go('quiz');renderQuestion()}catch(e){alert('Не удалось загрузить тест. Проверь соединение, обнови страницу и попробуй ещё раз.')}finally{busy=false;btn.disabled=false;btn.textContent='Начать тренировку ↗'}}
+function renderQuestion(){const q=questions[index];document.getElementById('counter').textContent=`Вопрос ${index+1} из ${questions.length}`;document.getElementById('qNum').textContent=`ВОПРОС ${String(index+1).padStart(2,'0')}`;document.getElementById('progressFill').style.width=`${index/questions.length*100}%`;document.getElementById('questionText').textContent=q.q;document.getElementById('qType').textContent=q.opts?'Выбери ответ':'Открытый вопрос';const area=document.getElementById('answerArea');area.innerHTML='';if(q.opts){const wrap=document.createElement('div');wrap.className='answers';q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='answer'+(answers[index]===i?' selected':'');b.setAttribute('aria-pressed',answers[index]===i);b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${escapeHtml(o)}</span>`;b.onclick=()=>{answers[index]=i;renderQuestion()};wrap.appendChild(b)});area.appendChild(wrap)}else{const t=document.createElement('textarea');t.placeholder=subject==='history'?'Напиши свой ответ…':'Javobingizni shu yerga yozing…';t.value=answers[index]||'';t.maxLength=2000;t.autocomplete='off';t.setAttribute('autocapitalize','sentences');t.oninput=()=>answers[index]=t.value;area.appendChild(t);const hint=document.createElement('div');hint.className='hint';hint.textContent='Краткий ответ своими словами. ИИ оценит смысл ответа и допустимые формулировки.';area.appendChild(hint)}document.getElementById('backQuestion').disabled=index===0;document.getElementById('nextQuestion').textContent=index===questions.length-1?'Завершить ✓':'Ответить →'}
+function previousQuestion(){if(index>0){index--;renderQuestion();window.scrollTo({top:0})}}
+function nextQuestion(){if(index<questions.length-1){index++;renderQuestion();window.scrollTo({top:0})}else finishQuiz()}
+async function finishQuiz(){const nextBtn=document.getElementById('nextQuestion');nextBtn.disabled=true;nextBtn.textContent='Проверяем ответы…';document.getElementById('backQuestion').disabled=true;document.getElementById('progressFill').style.width='100%';try{for(let i=0;i<questions.length;i++){if(gradedResults[i])continue;const response=await fetch('/api/check-answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({subject,question_id:questions[i].id,answer:answers[i]})});const result=await response.json();if(!response.ok)throw new Error(result.error||'Не удалось проверить ответ');gradedResults[i]=result;nextBtn.textContent=`Проверяем ответы… ${i+1}/${questions.length}`}const correct=gradedResults.filter(x=>x&&x.correct).length;const percent=Math.round(correct/questions.length*100);document.getElementById('scoreNumber').textContent=correct;document.getElementById('scoreTotal').textContent=questions.length;document.getElementById('correctStat').textContent=correct;document.getElementById('wrongStat').textContent=questions.length-correct;document.getElementById('percentStat').textContent=percent+'%';if(percent>=75){document.getElementById('resultTitle').textContent='Отличная работа!';document.getElementById('resultCopy').textContent='Ты хорошо подготовлен. Продолжай в том же духе — ещё немного практики, и результат станет ещё лучше.'}else{document.getElementById('resultTitle').textContent='Вы не готовы, учитесь!';document.getElementById('resultCopy').textContent='Не расстраивайся: ошибки показывают, что нужно повторить. Разбери ответы и попробуй ещё раз.'}document.getElementById('review').style.display='none';document.getElementById('reviewList').innerHTML='';go('results')}catch(e){alert('Не удалось проверить ответы: '+e.message+' Попробуй завершить тест ещё раз.')}finally{nextBtn.disabled=false;document.getElementById('backQuestion').disabled=index===0;nextBtn.textContent=index===questions.length-1?'Завершить ✓':'Ответить →'}}
+function showReview(){const r=document.getElementById('review');const open=r.style.display==='none';r.style.display=open?'block':'none';const list=document.getElementById('reviewList');list.innerHTML='';questions.forEach((q,i)=>{const result=gradedResults[i]||{};const ok=!!result.correct;const given=q.opts?(answers[i]===null?'Нет ответа':q.opts[answers[i]]):(answers[i]||'Нет ответа');const div=document.createElement('div');div.className='review-item';div.innerHTML=`<div class="r-question">${i+1}. ${escapeHtml(q.q)}</div><p class="${ok?'correct':'incorrect'}">${ok?'✓ Верно':'✕ Нужно повторить'}</p><p>Твой ответ: ${escapeHtml(String(given))}</p><p>Ответ по ключу: <strong style="color:var(--text)">${escapeHtml(result.correct_answer||'—')}</strong></p>${result.feedback?`<p>${escapeHtml(result.feedback)}</p>`:''}`;list.appendChild(div)});if(open)r.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'})}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function retryQuiz(){startQuiz()}
+function quitQuiz(){if(confirm('Завершить текущую тренировку? Прогресс этого раунда не сохранится.'))go('subjects')}
+</script>
+</body>
+</html>

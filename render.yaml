@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: gpttron
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.8-flash
+      - key: CHECKS_PER_MINUTE
+        value: "30"

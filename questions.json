@@ -1,0 +1,712 @@
+{
+  "literature": [
+    {
+      "q": "Кто является автором произведения «Герой нашего времени»?",
+      "a": "Михаил Лермонтов",
+      "opts": [
+        "Александр Пушкин",
+        "Михаил Лермонтов",
+        "Николай Гоголь",
+        "Иван Тургенев"
+      ],
+      "correct": 1,
+      "id": "literature_1"
+    },
+    {
+      "q": "К какому литературному направлению относится роман «Евгений Онегин»?",
+      "a": "Реализм",
+      "opts": [
+        "Классицизм",
+        "Романтизм",
+        "Реализм",
+        "Символизм"
+      ],
+      "correct": 2,
+      "id": "literature_2"
+    },
+    {
+      "q": "Кто написал комедию «Горе от ума»?",
+      "a": "Александр Грибоедов",
+      "opts": [
+        "Александр Грибоедов",
+        "Денис Фонвизин",
+        "Александр Островский",
+        "Николай Гоголь"
+      ],
+      "correct": 0,
+      "id": "literature_3"
+    },
+    {
+      "q": "Как звали главного героя романа «Герой нашего времени»?",
+      "a": "Печорин",
+      "opts": [
+        "Ленский",
+        "Чацкий",
+        "Печорин",
+        "Онегин"
+      ],
+      "correct": 2,
+      "id": "literature_4"
+    },
+    {
+      "q": "Как называется приём, при котором неодушевлённые предметы наделяются человеческими качествами?",
+      "a": "Олицетворение",
+      "opts": [
+        "Метафора",
+        "Эпитет",
+        "Олицетворение",
+        "Гипербола"
+      ],
+      "correct": 2,
+      "id": "literature_5"
+    },
+    {
+      "q": "Кто является автором произведения «Ревизор»?",
+      "a": "Николай Гоголь",
+      "opts": [
+        "Николай Гоголь",
+        "Александр Пушкин",
+        "Иван Крылов",
+        "Михаил Лермонтов"
+      ],
+      "correct": 0,
+      "id": "literature_6"
+    },
+    {
+      "q": "Кто из героев «Евгения Онегина» погибает на дуэли?",
+      "a": "Ленский",
+      "opts": [
+        "Онегин",
+        "Ленский",
+        "Татьяна",
+        "Зарецкий"
+      ],
+      "correct": 1,
+      "id": "literature_7"
+    },
+    {
+      "q": "Как называется вступительная часть литературного произведения?",
+      "a": "Экспозиция",
+      "opts": [
+        "Кульминация",
+        "Завязка",
+        "Экспозиция",
+        "Развязка"
+      ],
+      "correct": 2,
+      "id": "literature_8"
+    },
+    {
+      "q": "Кто написал басню «Ворона и Лисица»?",
+      "a": "Иван Крылов",
+      "opts": [
+        "Иван Крылов",
+        "Жуковский",
+        "Ломоносов",
+        "Державин"
+      ],
+      "correct": 0,
+      "id": "literature_9"
+    },
+    {
+      "q": "Как называется момент наивысшего напряжения в сюжете?",
+      "a": "Кульминация",
+      "opts": [
+        "Экспозиция",
+        "Кульминация",
+        "Завязка",
+        "Эпилог"
+      ],
+      "correct": 1,
+      "id": "literature_10"
+    },
+    {
+      "q": "Какой герой говорит: «Служить бы рад, прислуживаться тошно»?",
+      "a": "Чацкий",
+      "opts": [
+        "Чацкий",
+        "Фамусов",
+        "Молчалин",
+        "Скалозуб"
+      ],
+      "correct": 0,
+      "id": "literature_11"
+    },
+    {
+      "q": "Какой жанр произведения «Ревизор»?",
+      "a": "Комедия",
+      "opts": [
+        "Трагедия",
+        "Комедия",
+        "Роман",
+        "Поэма"
+      ],
+      "correct": 1,
+      "id": "literature_12"
+    },
+    {
+      "q": "Как называется разговор двух персонажей в произведении?",
+      "a": "Диалог",
+      "opts": [
+        "Монолог",
+        "Диалог",
+        "Реплика",
+        "Повествование"
+      ],
+      "correct": 1,
+      "id": "literature_13"
+    },
+    {
+      "q": "Кто написал поэму «Мцыри»?",
+      "a": "Михаил Лермонтов",
+      "opts": [
+        "Пушкин",
+        "Лермонтов",
+        "Некрасов",
+        "Блок"
+      ],
+      "correct": 1,
+      "id": "literature_14"
+    },
+    {
+      "q": "Как называется противопоставление образов или явлений в литературе?",
+      "a": "Антитеза",
+      "opts": [
+        "Антитеза",
+        "Эпитет",
+        "Сравнение",
+        "Аллегория"
+      ],
+      "correct": 0,
+      "id": "literature_15"
+    },
+    {
+      "q": "Кто является автором романа в стихах «Евгений Онегин»?",
+      "a": "Александр Пушкин",
+      "opts": [
+        "Александр Пушкин",
+        "Сергей Есенин",
+        "Михаил Лермонтов",
+        "Алексей Толстой"
+      ],
+      "correct": 0,
+      "id": "literature_16"
+    },
+    {
+      "q": "Продолжите фразу: «Хорошо там, где…»",
+      "a": "нас нет",
+      "id": "literature_17"
+    },
+    {
+      "q": "Кто написал роман «Анна Каренина»?",
+      "a": "Лев Толстой",
+      "id": "literature_18"
+    },
+    {
+      "q": "Кто является автором стихотворения «Белая берёза»?",
+      "a": "Сергей Есенин",
+      "id": "literature_19"
+    },
+    {
+      "q": "Кто является автором романа «Отцы и дети»?",
+      "a": "Иван Тургенев",
+      "id": "literature_20"
+    },
+    {
+      "q": "Кто написал басню «Квартет»?",
+      "a": "Иван Крылов",
+      "id": "literature_21"
+    },
+    {
+      "q": "Какое слово является антонимом слова «счастливый»?",
+      "a": "Грустный",
+      "id": "literature_22"
+    },
+    {
+      "q": "Кто является автором стихотворения «Бородино»?",
+      "a": "Михаил Лермонтов",
+      "id": "literature_23"
+    },
+    {
+      "q": "Назовите главного героя романа в стихах «Евгений Онегин».",
+      "a": "Евгений Онегин",
+      "id": "literature_24"
+    },
+    {
+      "q": "Кто автор романа «Преступление и наказание»?",
+      "a": "Фёдор Достоевский",
+      "id": "literature_25"
+    },
+    {
+      "q": "Подберите синоним к слову «Родина».",
+      "a": "Отчизна",
+      "id": "literature_26"
+    },
+    {
+      "q": "Кто является автором повести «Капитанская дочка»?",
+      "a": "Александр Пушкин",
+      "id": "literature_27"
+    },
+    {
+      "q": "Кто является автором рассказа «Человек в футляре»?",
+      "a": "Антон Чехов",
+      "id": "literature_28"
+    }
+  ],
+  "biology": [
+    {
+      "q": "Biologiyaning hayvonlarni o‘rganadigan bo‘limi nima deb ataladi?",
+      "a": "Zoologiya",
+      "id": "biology_1"
+    },
+    {
+      "q": "Bir hujayralilar noqulay sharoitni qanday o‘tkazadi?",
+      "a": "Sista hosil qilish",
+      "id": "biology_2"
+    },
+    {
+      "q": "Gidra va meduzalar qaysi tipga mansub?",
+      "a": "Bo‘shliqichlilar tipi",
+      "id": "biology_3"
+    },
+    {
+      "q": "Parazit chuvalchanglarni o‘rganadigan fan sohasi nima?",
+      "a": "Gelmintologiya",
+      "id": "biology_4"
+    },
+    {
+      "q": "Yomg‘ir chuvalchangining qon aylanish tizimi qanday?",
+      "a": "Yopiq qon aylanish tizimi",
+      "id": "biology_5"
+    },
+    {
+      "q": "Hasharotlarning nafas olish organlari nima deb ataladi?",
+      "a": "Traxeyalar",
+      "id": "biology_6"
+    },
+    {
+      "q": "Lansetnik qaysi tipga mansub va tayanch o‘qi nima?",
+      "a": "Xordalilar tipi, xorda",
+      "id": "biology_7"
+    },
+    {
+      "q": "Baliqlarning yon chizig‘i qanday vazifani bajaradi?",
+      "a": "Suv oqimi va yaqinlashayotgan narsalarni sezadi",
+      "id": "biology_8"
+    },
+    {
+      "q": "Amfibiyalarning yuragi necha kamerali?",
+      "a": "3 kamerali",
+      "id": "biology_9"
+    },
+    {
+      "q": "Qushlarning uchishini yengillashtiradigan suyak xususiyati qaysi?",
+      "a": "Suyaklari ichi havo bilan to‘la, yengil",
+      "id": "biology_10"
+    },
+    {
+      "q": "Ko‘krak va qorin bo‘shlig‘ini ajratadigan mushak nima?",
+      "a": "Diafragma",
+      "id": "biology_11"
+    },
+    {
+      "q": "Issiqqonli hayvonlar guruhiga qaysi sinflar kiradi?",
+      "a": "Qushlar va sutemizuvchilar",
+      "id": "biology_12"
+    },
+    {
+      "q": "Hayvonlar dunyosining eng yirik tipi qaysi?",
+      "a": "Bo‘g‘imoyoqlilar",
+      "id": "biology_13"
+    },
+    {
+      "q": "Qisqichbaqasimonlarning ajratish organi qanday nomlanadi?",
+      "a": "Yashil bezlar",
+      "id": "biology_14"
+    },
+    {
+      "q": "Asalarilar va chumolilar qaysi turkumga kiradi?",
+      "a": "Pardaqanotlilar",
+      "id": "biology_15"
+    },
+    {
+      "q": "Odam organizmida nechta asosiy to‘qima guruhi bor?",
+      "a": "4 ta: epiteliy, biriktiruvchi, mushak, nerv",
+      "id": "biology_16"
+    },
+    {
+      "q": "Odam skeletidagi eng yirik suyak qaysi?",
+      "a": "Son suyagi",
+      "id": "biology_17"
+    },
+    {
+      "q": "Qonning shaklli elementlarini ayting.",
+      "a": "Eritrotsitlar, leykotsitlar, trombotsitlar",
+      "id": "biology_18"
+    },
+    {
+      "q": "Odam yuragi necha kamerali?",
+      "a": "4 kamerali",
+      "id": "biology_19"
+    },
+    {
+      "q": "Katta qon aylanish doirasi qayerdan boshlanadi va qayerda tugaydi?",
+      "a": "Chap qorinchadan boshlanib, o‘ng bo‘lmachada tugaydi",
+      "id": "biology_20"
+    },
+    {
+      "q": "Odamning o‘pka sig‘imi qaysi asbob bilan o‘lchanadi?",
+      "a": "Spirometr",
+      "id": "biology_21"
+    },
+    {
+      "q": "Oziq moddalar asosan qayerda qonga so‘riladi?",
+      "a": "Ingichka ichakda",
+      "id": "biology_22"
+    },
+    {
+      "q": "Organizmning eng yirik ichki bezi qaysi?",
+      "a": "Jigar",
+      "id": "biology_23"
+    },
+    {
+      "q": "C vitamini yetishmaganda qanday kasallik kelib chiqadi?",
+      "a": "Skorbut",
+      "id": "biology_24"
+    },
+    {
+      "q": "Buyrakning tarkibiy birligi nima?",
+      "a": "Nefron",
+      "id": "biology_25"
+    },
+    {
+      "q": "Neyronning kalta va uzun o‘simtalari qanday ataladi?",
+      "a": "Dendrit va akson",
+      "id": "biology_26"
+    },
+    {
+      "q": "Markaziy nerv tizimiga qaysi organlar kiradi?",
+      "a": "Bosh miya va orqa miya",
+      "id": "biology_27"
+    },
+    {
+      "q": "Insulin gormoni qaysi bezdan ajraladi?",
+      "a": "Me’da osti bezi",
+      "id": "biology_28"
+    },
+    {
+      "q": "Oliy nerv faoliyati va shartli reflekslar ta’limotini kim yaratgan?",
+      "a": "I. P. Pavlov",
+      "id": "biology_29"
+    },
+    {
+      "q": "Odam organizmining ichki muhit barqarorligi nima deb ataladi?",
+      "a": "Gomeostaz",
+      "id": "biology_30"
+    }
+  ],
+  "chemistry": [
+    {
+      "q": "Kimyoviy element nima?",
+      "a": "Yadro zaryadi bir xil bo‘lgan atomlar turi",
+      "id": "chemistry_1"
+    },
+    {
+      "q": "Modda miqdorining birligi nima?",
+      "a": "Mol",
+      "id": "chemistry_2"
+    },
+    {
+      "q": "Avogadro doimiysi nimaga teng?",
+      "a": "6,02 × 10²³ mol⁻¹",
+      "id": "chemistry_3"
+    },
+    {
+      "q": "Molyar massa nima?",
+      "a": "Moddaning 1 moldagi massasi, g/mol",
+      "id": "chemistry_4"
+    },
+    {
+      "q": "Normal sharoitda gazlarning molyar hajmi qancha?",
+      "a": "22,4 litr/mol",
+      "id": "chemistry_5"
+    },
+    {
+      "q": "Modda tarkibining doimiylik qonunini kim kashf etgan?",
+      "a": "J. Prust",
+      "id": "chemistry_6"
+    },
+    {
+      "q": "Davriy qonunni kim va qachon kashf etgan?",
+      "a": "D. I. Mendeleyev, 1869-yilda",
+      "id": "chemistry_7"
+    },
+    {
+      "q": "Davriy sistemada nechta davr bor?",
+      "a": "7 ta",
+      "id": "chemistry_8"
+    },
+    {
+      "q": "Galogenlarga qaysi elementlar kiradi?",
+      "a": "Ftor, xlor, brom, yod, astat",
+      "id": "chemistry_9"
+    },
+    {
+      "q": "Atom qanday zarrachalardan tashkil topgan?",
+      "a": "Proton, neytron va elektron",
+      "id": "chemistry_10"
+    },
+    {
+      "q": "Izotoplar nima?",
+      "a": "Protonlari bir xil, neytronlari har xil atomlar",
+      "id": "chemistry_11"
+    },
+    {
+      "q": "Kovalent bog‘lanish nima?",
+      "a": "Umumlashgan elektron juftlari orqali hosil bo‘ladigan bog‘lanish",
+      "id": "chemistry_12"
+    },
+    {
+      "q": "Eng yuqori elektromanfiylikka ega element qaysi?",
+      "a": "Ftor",
+      "id": "chemistry_13"
+    },
+    {
+      "q": "Eritma nima?",
+      "a": "Bir jinsli gomogen sistema",
+      "id": "chemistry_14"
+    },
+    {
+      "q": "To‘yingan eritma deb qanday eritmaga aytiladi?",
+      "a": "Berilgan temperaturada modda ortiq erimaydigan eritma",
+      "id": "chemistry_15"
+    },
+    {
+      "q": "Eritmaning foiz konsentratsiyasi formulasi qanday?",
+      "a": "w = m(erigan modda) / m(eritma) × 100%",
+      "id": "chemistry_16"
+    },
+    {
+      "q": "Elektrolitlar nima?",
+      "a": "Eritmasi yoki suyuqlanmasi elektr tokini o‘tkazadigan moddalar",
+      "id": "chemistry_17"
+    },
+    {
+      "q": "Kislotalar dissotsilanganda qaysi kationni hosil qiladi?",
+      "a": "Vodorod kationi H+",
+      "id": "chemistry_18"
+    },
+    {
+      "q": "Ishqorlar dissotsilanganda qaysi anion hosil bo‘ladi?",
+      "a": "Gidroksid anioni OH−",
+      "id": "chemistry_19"
+    },
+    {
+      "q": "Oksidlar nima?",
+      "a": "Ikki elementdan iborat, biri kislorod bo‘lgan murakkab moddalar",
+      "id": "chemistry_20"
+    },
+    {
+      "q": "Amfoter oksidlar qanday xossaga ega?",
+      "a": "Ham kislotali, ham asosli xossaga ega",
+      "id": "chemistry_21"
+    },
+    {
+      "q": "Neytrallanish reaksiyasi nima?",
+      "a": "Kislota va asos reaksiyasidan tuz va suv hosil bo‘lishi",
+      "id": "chemistry_22"
+    },
+    {
+      "q": "Osh tuzining kimyoviy formulasi qanday?",
+      "a": "NaCl",
+      "id": "chemistry_23"
+    },
+    {
+      "q": "Ohaktoshning kimyoviy formulasi qanday?",
+      "a": "CaCO₃",
+      "id": "chemistry_24"
+    },
+    {
+      "q": "Kation va anion nima?",
+      "a": "Kation musbat, anion manfiy zaryadlangan ion",
+      "id": "chemistry_25"
+    },
+    {
+      "q": "Metall bog‘lanish nima?",
+      "a": "Musbat metall ionlari va erkin elektronlar orasidagi bog‘lanish",
+      "id": "chemistry_26"
+    },
+    {
+      "q": "Qutbsiz kovalent bog‘lanishga misol keltiring.",
+      "a": "H₂, Cl₂ yoki O₂",
+      "id": "chemistry_27"
+    },
+    {
+      "q": "Kuchli elektrolitlarga misollar keltiring.",
+      "a": "HCl, HNO₃, H₂SO₄, NaOH, KOH",
+      "id": "chemistry_28"
+    },
+    {
+      "q": "Asoslar nima?",
+      "a": "Metall atomi va bir yoki bir nechta OH guruhidan iborat moddalar",
+      "id": "chemistry_29"
+    },
+    {
+      "q": "Nordon tuzga misol keltiring.",
+      "a": "NaHCO₃ yoki KHSO₄",
+      "id": "chemistry_30"
+    }
+  ],
+  "history": [
+    {
+      "q": "На берегу какого моря находились древние города Содом и Гоморра?",
+      "a": "Мёртвое море",
+      "id": "history_1"
+    },
+    {
+      "q": "В какой стране и регионе майя и ацтеки использовали какао-бобы как деньги?",
+      "a": "Мексика, Центральная Америка",
+      "id": "history_2"
+    },
+    {
+      "q": "В какой стране зародились Олимпийские игры?",
+      "a": "Греция",
+      "id": "history_3"
+    },
+    {
+      "q": "Какой город, согласно легенде, основали Ромул и Рем?",
+      "a": "Рим",
+      "id": "history_4"
+    },
+    {
+      "q": "Какое государство зависело от ежегодных разливов Нила?",
+      "a": "Египет",
+      "id": "history_5"
+    },
+    {
+      "q": "На каком острове, согласно мифу, находился лабиринт Минотавра?",
+      "a": "Крит",
+      "id": "history_6"
+    },
+    {
+      "q": "В какой стране нашли терракотовую армию первого императора?",
+      "a": "Китай",
+      "id": "history_7"
+    },
+    {
+      "q": "На территории какой современной страны находился Вавилон?",
+      "a": "Ирак",
+      "id": "history_8"
+    },
+    {
+      "q": "В какой стране возникла система цифр с нулём, известная как арабская?",
+      "a": "Индия",
+      "id": "history_9"
+    },
+    {
+      "q": "Как называлась древняя область на восточном побережье Средиземного моря, известная пурпуром и мореплаванием?",
+      "a": "Финикия",
+      "id": "history_10"
+    },
+    {
+      "q": "В какой стране родился Леонардо да Винчи?",
+      "a": "Италия",
+      "id": "history_11"
+    },
+    {
+      "q": "С какого полуострова происходили викинги?",
+      "a": "Скандинавский полуостров",
+      "id": "history_12"
+    },
+    {
+      "q": "В какой стране Жанна д’Арк возглавила борьбу во время Столетней войны?",
+      "a": "Франция",
+      "id": "history_13"
+    },
+    {
+      "q": "Как называется современная страна, где находится бывший Константинополь?",
+      "a": "Турция",
+      "id": "history_14"
+    },
+    {
+      "q": "Какой город называли «Матерью городов русских»?",
+      "a": "Киев",
+      "id": "history_15"
+    },
+    {
+      "q": "На каком озере произошло Ледовое побоище?",
+      "a": "Чудское озеро",
+      "id": "history_16"
+    },
+    {
+      "q": "Какой остров известен как родина Святого Патрика?",
+      "a": "Ирландия",
+      "id": "history_17"
+    },
+    {
+      "q": "В какой стране находятся Самарканд и Бухара?",
+      "a": "Узбекистан",
+      "id": "history_18"
+    },
+    {
+      "q": "В какой стране находится город Венеция?",
+      "a": "Италия",
+      "id": "history_19"
+    },
+    {
+      "q": "Какой регион называли Святой Землёй во время крестовых походов?",
+      "a": "Иерусалим, Палестина",
+      "id": "history_20"
+    },
+    {
+      "q": "Как называли острова Карибского моря, которые Колумб считал частью Индии?",
+      "a": "Вест-Индия",
+      "id": "history_21"
+    },
+    {
+      "q": "Из какой страны в 1519 году отправилась экспедиция Магеллана?",
+      "a": "Испания",
+      "id": "history_22"
+    },
+    {
+      "q": "В какой современной стране находятся Молуккские острова?",
+      "a": "Индонезия",
+      "id": "history_23"
+    },
+    {
+      "q": "На каком материке конкистадоры искали Эльдорадо?",
+      "a": "Южная Америка",
+      "id": "history_24"
+    },
+    {
+      "q": "Как называется мыс на юге Африки, важный для морского пути в Индию?",
+      "a": "Мыс Доброй Надежды",
+      "id": "history_25"
+    },
+    {
+      "q": "Какая страна разгромила Испанскую армаду в 1588 году?",
+      "a": "Англия",
+      "id": "history_26"
+    },
+    {
+      "q": "В какой стране произошла «тюльпаномания» XVII века?",
+      "a": "Нидерланды",
+      "id": "history_27"
+    },
+    {
+      "q": "Какой материк раньше называли Новой Голландией?",
+      "a": "Австралия",
+      "id": "history_28"
+    },
+    {
+      "q": "Из какого региона Южной Америки происходят картофель и томаты?",
+      "a": "Анды, Перу",
+      "id": "history_29"
+    },
+    {
+      "q": "Как называется пролив между Азией и Северной Америкой?",
+      "a": "Берингов пролив",
+      "id": "history_30"
+    }
+  ]
+}
