@@ -100,7 +100,7 @@ def generate_with_retry(prompt):
                     ],
                     response_format={"type": "json_object"},
                     temperature=0.1,
-                    max_completion_tokens=250
+                    max_completion_tokens=2500
                 )
 
                 content = response.choices[0].message.content
