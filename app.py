@@ -20,7 +20,10 @@ app.logger.setLevel(logging.INFO)
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 FALLBACK_MODEL = os.getenv("GEMINI_FALLBACK_MODEL", "gemini-2.5-flash")
 API_KEY = os.getenv("GEMINI_API_KEY")
-client = genai.Client(api_key=API_KEY) if API_KEY else None
+client = genai.Client(
+    api_key=API_KEY,
+    http_options=types.HttpOptions(timeout=25000),  # HTTP timeout in milliseconds
+) if API_KEY else None
 
 with (BASE_DIR / "questions.json").open("r", encoding="utf-8") as file:
     QUESTION_BANK = json.load(file)
