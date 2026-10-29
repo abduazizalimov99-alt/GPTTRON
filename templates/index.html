@@ -177,8 +177,9 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
 </section>
 
 <section class="screen" id="mode">
- <div class="section-head"><div><div class="step">Шаг 02 / 02</div><h2>Как будем тренироваться?</h2><div style="color:var(--muted)">Выбери порядок вопросов.</div></div></div>
+ <div class="section-head"><div><div class="step">Шаг 02 / 02</div><h2>Как будем тренироваться?</h2></div></div>
  <div class="options">
+ <div style="color:var(--muted)">Выбери режим:</div>
   <label class="option">
     <input type="radio" name="studyMode" value="test" checked>
     <span>
@@ -186,7 +187,7 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
       <small>Ответы проверяются в конце.</small>
     </span>
   </label>
-
+     
   <label class="option">
     <input type="radio" name="studyMode" value="learning">
     <span>
@@ -196,10 +197,12 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
   </label>
 </div>
  <div class="options">
+  <div style="color:var(--muted)">Выбери порядок:</div>
   <label class="option"><input type="radio" name="order" value="sequential" checked><span><strong>По порядку</strong><small>Вопросы идут как в исходном списке.</small></span></label>
   <label class="option"><input type="radio" name="order" value="random"><span><strong>В случайном порядке</strong><small>Перемешать вопросы для новой попытки.</small></span></label>
  </div>
  <div class="options">
+ <div style="color:var(--muted)">Выбери тип:</div>
   <label class="option"><input type="radio" name="format" value="all" checked><span><strong>Полная тренировка</strong><small>Все вопросы выбранного предмета.</small></span></label>
   <label class="option"><input type="radio" name="format" value="sprint"><span><strong>Спринт · 10 вопросов</strong><small>Короткая проверка на скорость и точность.</small></span></label>
  </div>
