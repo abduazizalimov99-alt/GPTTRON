@@ -679,5 +679,607 @@
       "a": "Берингов пролив",
       "id": "history_30"
     }
+  ],
+  "english": [
+    {
+      "q": "If I _ enough money, I would buy a new laptop.",
+      "a": "had",
+      "opts": [
+        "have",
+        "had",
+        "will have",
+        "would have"
+      ],
+      "correct": 1,
+      "id": "english_1"
+    },
+    {
+      "q": "She _ in this school since 2022.",
+      "a": "has worked",
+      "opts": [
+        "works",
+        "worked",
+        "has worked",
+        "is working"
+      ],
+      "correct": 2,
+      "id": "english_2"
+    },
+    {
+      "q": "While I _ home, I saw an accident.",
+      "a": "was walking",
+      "opts": [
+        "walked",
+        "was walking",
+        "am walking",
+        "have walked"
+      ],
+      "correct": 1,
+      "id": "english_3"
+    },
+    {
+      "q": "The homework _ by the students yesterday.",
+      "a": "was completed",
+      "opts": [
+        "completed",
+        "was completed",
+        "is completing",
+        "has completing"
+      ],
+      "correct": 1,
+      "id": "english_4"
+    },
+    {
+      "q": "He said that he _ tired.",
+      "a": "was",
+      "opts": [
+        "is",
+        "has been",
+        "was",
+        "will be"
+      ],
+      "correct": 2,
+      "id": "english_5"
+    },
+    {
+      "q": "You _ smoke in the hospital. It is forbidden.",
+      "a": "mustn't",
+      "opts": [
+        "don't have to",
+        "mustn't",
+        "couldn't",
+        "might not"
+      ],
+      "correct": 1,
+      "id": "english_6"
+    },
+    {
+      "q": "This is the girl _ won the English competition.",
+      "a": "who",
+      "opts": [
+        "which",
+        "whose",
+        "who",
+        "where"
+      ],
+      "correct": 2,
+      "id": "english_7"
+    },
+    {
+      "q": "My sister is _ than I am.",
+      "a": "taller",
+      "opts": [
+        "more tall",
+        "tallest",
+        "taller",
+        "the taller"
+      ],
+      "correct": 2,
+      "id": "english_8"
+    },
+    {
+      "q": "By the time we arrived, the film _ .",
+      "a": "had started",
+      "opts": [
+        "starts",
+        "has started",
+        "had started",
+        "was starting"
+      ],
+      "correct": 2,
+      "id": "english_9"
+    },
+    {
+      "q": "If it rains tomorrow, we _ at home.",
+      "a": "will stay",
+      "opts": [
+        "stayed",
+        "would stay",
+        "will stay",
+        "had stayed"
+      ],
+      "correct": 2,
+      "id": "english_10"
+    },
+    {
+      "q": "I enjoy _ English books in my free time.",
+      "a": "reading",
+      "opts": [
+        "read",
+        "reading",
+        "to reading",
+        "reads"
+      ],
+      "correct": 1,
+      "id": "english_11"
+    },
+    {
+      "q": "Neither Tom nor his friends _ ready for the competition.",
+      "a": "are",
+      "opts": [
+        "is",
+        "was",
+        "are",
+        "has"
+      ],
+      "correct": 2,
+      "id": "english_12"
+    },
+    {
+      "q": "There isn't _ milk left in the fridge.",
+      "a": "much",
+      "opts": [
+        "many",
+        "few",
+        "much",
+        "several"
+      ],
+      "correct": 2,
+      "id": "english_13"
+    },
+    {
+      "q": "She speaks English _ than her brother.",
+      "a": "more fluently",
+      "opts": [
+        "fluent",
+        "more fluently",
+        "most fluent",
+        "more fluent"
+      ],
+      "correct": 1,
+      "id": "english_14"
+    },
+    {
+      "q": "You look tired. You _ go to bed earlier.",
+      "a": "should",
+      "opts": [
+        "should",
+        "may not",
+        "mustn't",
+        "can't"
+      ],
+      "correct": 0,
+      "id": "english_15"
+    },
+    {
+      "q": "I wish I _ speak English more confidently.",
+      "a": "could",
+      "opts": [
+        "can",
+        "will",
+        "could",
+        "should"
+      ],
+      "correct": 2,
+      "id": "english_16"
+    },
+    {
+      "q": "The man _ car was stolen called the police.",
+      "a": "whose",
+      "opts": [
+        "who",
+        "which",
+        "whose",
+        "whom"
+      ],
+      "correct": 2,
+      "id": "english_17"
+    },
+    {
+      "q": "We _ dinner when the lights went out.",
+      "a": "were having",
+      "opts": [
+        "had",
+        "were having",
+        "have had",
+        "are having"
+      ],
+      "correct": 1,
+      "id": "english_18"
+    },
+    {
+      "q": "She asked me where I _ .",
+      "a": "lived",
+      "opts": [
+        "live",
+        "do live",
+        "lived",
+        "will live"
+      ],
+      "correct": 2,
+      "id": "english_19"
+    },
+    {
+      "q": "This exercise is _ difficult than the previous one.",
+      "a": "less",
+      "opts": [
+        "less",
+        "least",
+        "little",
+        "the less"
+      ],
+      "correct": 0,
+      "id": "english_20"
+    },
+    {
+      "q": "Choose the synonym of \"rapid\".",
+      "a": "Quick",
+      "opts": [
+        "Slow",
+        "Quick",
+        "Weak",
+        "Quiet"
+      ],
+      "correct": 1,
+      "id": "english_21"
+    },
+    {
+      "q": "Choose the opposite of \"generous\".",
+      "a": "Selfish",
+      "opts": [
+        "Kind",
+        "Helpful",
+        "Selfish",
+        "Friendly"
+      ],
+      "correct": 2,
+      "id": "english_22"
+    },
+    {
+      "q": "If you are exhausted, you are _ .",
+      "a": "very tired",
+      "opts": [
+        "very tired",
+        "very happy",
+        "very angry",
+        "very hungry"
+      ],
+      "correct": 0,
+      "id": "english_23"
+    },
+    {
+      "q": "She is very good _ solving problems.",
+      "a": "at",
+      "opts": [
+        "at",
+        "on",
+        "in",
+        "for"
+      ],
+      "correct": 0,
+      "id": "english_24"
+    },
+    {
+      "q": "We need to _ a decision before Friday.",
+      "a": "make",
+      "opts": [
+        "do",
+        "make",
+        "take",
+        "get"
+      ],
+      "correct": 1,
+      "id": "english_25"
+    },
+    {
+      "q": "The word \"environment\" refers to _ .",
+      "a": "the natural world around us",
+      "opts": [
+        "the natural world around us",
+        "a school subject",
+        "a type of building",
+        "a kind of transport"
+      ],
+      "correct": 0,
+      "id": "english_26"
+    },
+    {
+      "q": "He apologized _ being late.",
+      "a": "for",
+      "opts": [
+        "of",
+        "with",
+        "for",
+        "about"
+      ],
+      "correct": 2,
+      "id": "english_27"
+    },
+    {
+      "q": "A person who writes books is an _ .",
+      "a": "author",
+      "opts": [
+        "actor",
+        "author",
+        "engineer",
+        "architect"
+      ],
+      "correct": 1,
+      "id": "english_28"
+    },
+    {
+      "q": "Choose the correct phrasal verb: I need to _ what time the train leaves.",
+      "a": "find out",
+      "opts": [
+        "find out",
+        "give up",
+        "put off",
+        "look after"
+      ],
+      "correct": 0,
+      "id": "english_29"
+    },
+    {
+      "q": "The idiom \"once in a blue moon\" means _ .",
+      "a": "very rarely",
+      "opts": [
+        "every day",
+        "very quickly",
+        "very rarely",
+        "at night"
+      ],
+      "correct": 2,
+      "id": "english_30"
+    },
+    {
+      "q": "She has been interested _ science since childhood.",
+      "a": "in",
+      "opts": [
+        "on",
+        "in",
+        "at",
+        "for"
+      ],
+      "correct": 1,
+      "id": "english_31"
+    },
+    {
+      "q": "He succeeded _ passing the exam.",
+      "a": "in",
+      "opts": [
+        "in",
+        "on",
+        "at",
+        "with"
+      ],
+      "correct": 0,
+      "id": "english_32"
+    },
+    {
+      "q": "The train arrived _ the station on time.",
+      "a": "at",
+      "opts": [
+        "to",
+        "in",
+        "at",
+        "on"
+      ],
+      "correct": 2,
+      "id": "english_33"
+    },
+    {
+      "q": "Choose the correct form: It was a very _ experience. (ENJOY)",
+      "a": "enjoyable",
+      "opts": [
+        "enjoy",
+        "enjoyment",
+        "enjoyable",
+        "enjoyed"
+      ],
+      "correct": 2,
+      "id": "english_34"
+    },
+    {
+      "q": "She answered all the questions _ . (CORRECT)",
+      "a": "correctly",
+      "opts": [
+        "correct",
+        "correctly",
+        "correction",
+        "incorrect"
+      ],
+      "correct": 1,
+      "id": "english_35"
+    },
+    {
+      "q": "His _ surprised everyone. (DECIDE)",
+      "a": "decision",
+      "opts": [
+        "decide",
+        "decisive",
+        "decision",
+        "decided"
+      ],
+      "correct": 2,
+      "id": "english_36"
+    },
+    {
+      "q": "It is _ to cross the road without looking. (DANGER)",
+      "a": "dangerous",
+      "opts": [
+        "dangerous",
+        "dangerously",
+        "danger",
+        "endangered"
+      ],
+      "correct": 0,
+      "id": "english_37"
+    },
+    {
+      "q": "We should protect the _ from pollution. (ENVIRONMENT)",
+      "a": "environment",
+      "opts": [
+        "environmental",
+        "environmentally",
+        "environment",
+        "environmentalist"
+      ],
+      "correct": 2,
+      "id": "english_38"
+    },
+    {
+      "q": "Hardly had I entered the room _ the phone rang.",
+      "a": "when",
+      "opts": [
+        "than",
+        "when",
+        "then",
+        "while"
+      ],
+      "correct": 1,
+      "id": "english_39"
+    },
+    {
+      "q": "If she had studied harder, she _ the exam.",
+      "a": "would have passed",
+      "opts": [
+        "would pass",
+        "will pass",
+        "would have passed",
+        "passed"
+      ],
+      "correct": 2,
+      "id": "english_40"
+    },
+    {
+      "q": "Not only _ late, but he also forgot his homework.",
+      "a": "was he",
+      "opts": [
+        "he was",
+        "was he",
+        "he is",
+        "is he being"
+      ],
+      "correct": 1,
+      "id": "english_41"
+    },
+    {
+      "q": "I would rather you _ here tomorrow.",
+      "a": "came",
+      "opts": [
+        "come",
+        "will come",
+        "came",
+        "coming"
+      ],
+      "correct": 2,
+      "id": "english_42"
+    },
+    {
+      "q": "The book is worth _ .",
+      "a": "reading",
+      "opts": [
+        "read",
+        "to read",
+        "reading",
+        "to reading"
+      ],
+      "correct": 2,
+      "id": "english_43"
+    },
+    {
+      "q": "Despite _ tired, she continued working.",
+      "a": "being",
+      "opts": [
+        "be",
+        "being",
+        "was",
+        "been"
+      ],
+      "correct": 1,
+      "id": "english_44"
+    },
+    {
+      "q": "What is the main idea of the text?",
+      "a": "Learning languages is beneficial but requires effort.",
+      "opts": [
+        "English is the only useful language.",
+        "Learning languages is beneficial but requires effort.",
+        "Technology makes teachers unnecessary.",
+        "Students should only learn languages at school."
+      ],
+      "correct": 1,
+      "id": "english_45"
+    },
+    {
+      "q": "Why do many students learn English?",
+      "a": "It is used internationally in many fields.",
+      "opts": [
+        "It is easy for everyone.",
+        "It is used internationally in many fields.",
+        "It does not require practice.",
+        "It is the oldest language."
+      ],
+      "correct": 1,
+      "id": "english_46"
+    },
+    {
+      "q": "According to the text, what should learners do when they make mistakes?",
+      "a": "Use mistakes to improve.",
+      "opts": [
+        "Stop studying.",
+        "Feel embarrassed.",
+        "Use mistakes to improve.",
+        "Avoid speaking."
+      ],
+      "correct": 2,
+      "id": "english_47"
+    },
+    {
+      "q": "Which of the following is mentioned as a way to practise a language?",
+      "a": "Watching films.",
+      "opts": [
+        "Avoiding books.",
+        "Watching films.",
+        "Memorising every dictionary.",
+        "Studying only grammar."
+      ],
+      "correct": 1,
+      "id": "english_48"
+    },
+    {
+      "q": "What does the word \"consistency\" most nearly mean in the text?",
+      "a": "Practising regularly.",
+      "opts": [
+        "Practising regularly.",
+        "Learning very quickly.",
+        "Avoiding difficult tasks.",
+        "Studying without a teacher."
+      ],
+      "correct": 0,
+      "id": "english_49"
+    },
+    {
+      "q": "What can be inferred from the text?",
+      "a": "Regular effort is important for language learning.",
+      "opts": [
+        "Technology guarantees language-learning success.",
+        "Speaking practice is unnecessary.",
+        "Regular effort is important for language learning.",
+        "Making mistakes means a student cannot learn."
+      ],
+      "correct": 2,
+      "id": "english_50"
+    }
   ]
 }
