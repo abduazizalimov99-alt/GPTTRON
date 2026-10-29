@@ -33,7 +33,12 @@ h2{font-size:clamp(26px,6.5vw,42px);letter-spacing:-.045em;line-height:1.1;margi
 .btn.secondary{background:#202531;color:var(--text);border:1px solid var(--line)}.btn.full{width:100%}
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px}
 .step{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
-.subjects{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin:22px 0 26px}
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gap);
+    margin: 22px 0 26px;
+}
 .subject{position:relative;text-align:left;min-height:clamp(120px,22vw,150px);padding:var(--pad);border:1px solid var(--line);background:linear-gradient(145deg,var(--panel2),var(--panel));border-radius:18px;color:var(--text);transition:.2s}
 .subject.selected{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:linear-gradient(145deg,#a7f36b15,var(--panel))}
 .subject .emoji{font-size:24px;margin-bottom:clamp(8px,3vw,20px);display:block}.subject strong{display:block;font-size:15px}.subject small{display:block;color:var(--muted);font-size:12px;margin-top:5px}
@@ -147,12 +152,13 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
 </section>
 
 <section class="screen" id="subjects">
- <div class="section-head"><div><div class="step">Шаг 01 / 02</div><h2>Выбери предмет</h2><div style="color:var(--muted)">С чего начнём тренировку?</div></div><div class="pill">4 предмета</div></div>
+ <div class="section-head"><div><div class="step">Шаг 01 / 02</div><h2>Выбери предмет</h2><div style="color:var(--muted)">С чего начнём тренировку?</div></div><div class="pill">5 предметов</div></div>
  <div class="subjects">
   <button class="subject selected" data-subject="literature" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">📚</span><strong>Литература</strong><small>Тесты и произведения</small></button>
   <button class="subject" data-subject="biology" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🧬</span><strong>Biologiya</strong><small>Organizm va tabiat</small></button>
   <button class="subject" data-subject="chemistry" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">⚗️</span><strong>Kimyo</strong><small>Elementlar va reaksiyalar</small></button>
   <button class="subject" data-subject="history" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🌍</span><strong>История</strong><small>Мир и цивилизации</small></button>
+  <button class="subject" data-subject="english" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🇬🇧</span><strong>English</strong><small>Grammar, vocabulary and reading</small></button>
  </div>
  <div class="actions"><button class="btn secondary" onclick="go('welcome')">← Назад</button><button class="btn" onclick="go('mode')">Продолжить →</button></div>
 </section>
@@ -215,7 +221,7 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
 <footer class="footer"><span>GPTTRON · Учись. Проверяй. Побеждай.</span><span>by @Abduaziz</span></footer>
 </div>
 <script>
-const LABELS={literature:'Литература',biology:'Biologiya',chemistry:'Kimyo',history:'История'};
+const LABELS={literature:'Литература',biology:'Biologiya',chemistry:'Kimyo',history:'История',english: 'English'};
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let subject='literature',
     questions=[],
