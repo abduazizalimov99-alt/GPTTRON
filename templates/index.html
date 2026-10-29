@@ -44,6 +44,52 @@ h2{font-size:clamp(26px,6.5vw,42px);letter-spacing:-.045em;line-height:1.1;margi
 .option:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
 .option input{accent-color:var(--accent);width:20px;height:20px;flex-shrink:0}
 .option strong{display:block;font-size:14px}.option small{color:var(--muted);font-size:12px;display:block;margin-top:3px}
+ .answer.study-correct {
+    border-color: var(--good);
+    background: #9cf27b14;
+}
+
+.answer.study-correct .letter {
+    border-color: var(--good);
+    background: var(--good);
+    color: #10150c;
+}
+
+.answer.study-wrong {
+    border-color: var(--bad);
+    background: #ff777714;
+}
+
+.answer.study-wrong .letter {
+    border-color: var(--bad);
+    background: var(--bad);
+    color: #10150c;
+}
+
+.study-feedback {
+    padding: 14px 16px;
+    margin-top: 14px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--panel);
+}
+
+.study-feedback.good {
+    color: var(--good);
+    border-color: #9cf27b55;
+}
+
+.study-feedback.bad {
+    color: var(--bad);
+    border-color: #ff777755;
+}
+
+.study-reference {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+    white-space: pre-wrap;
+}
 .actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.actions .btn{min-width:150px}
 .quiz-wrap{max-width:760px;margin:auto}
 .quiz-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px}
@@ -114,6 +160,23 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
 <section class="screen" id="mode">
  <div class="section-head"><div><div class="step">Шаг 02 / 02</div><h2>Как будем тренироваться?</h2><div style="color:var(--muted)">Выбери порядок вопросов.</div></div></div>
  <div class="options">
+  <label class="option">
+    <input type="radio" name="studyMode" value="test" checked>
+    <span>
+      <strong>Тестирование</strong>
+      <small>Ответы проверяются в конце.</small>
+    </span>
+  </label>
+
+  <label class="option">
+    <input type="radio" name="studyMode" value="learning">
+    <span>
+      <strong>Обучение</strong>
+      <small>Сразу показывать правильные ответы.</small>
+    </span>
+  </label>
+</div>
+ <div class="options">
   <label class="option"><input type="radio" name="order" value="sequential" checked><span><strong>По порядку</strong><small>Вопросы идут как в исходном списке.</small></span></label>
   <label class="option"><input type="radio" name="order" value="random"><span><strong>В случайном порядке</strong><small>Перемешать вопросы для новой попытки.</small></span></label>
  </div>
@@ -154,15 +217,245 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
 <script>
 const LABELS={literature:'Литература',biology:'Biologiya',chemistry:'Kimyo',history:'История'};
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let subject='literature',questions=[],index=0,answers=[],gradedResults=[],busy=false;
+let subject='literature',
+    questions=[],
+    index=0,
+    answers=[],
+    gradedResults=[],
+    busy=false,
+    trainingMode=false,
+    revealedAnswers=new Set();
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'})}
 function chooseSubject(el){document.querySelectorAll('.subject').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');subject=el.dataset.subject}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-async function startQuiz(){if(busy)return;busy=true;const btn=document.getElementById('startBtn');btn.disabled=true;btn.textContent='Загрузка…';try{const response=await fetch(`/api/questions/${encodeURIComponent(subject)}`);if(!response.ok)throw new Error('Не удалось загрузить вопросы');questions=await response.json();if(document.querySelector('input[name="order"]:checked').value==='random')shuffle(questions);if(document.querySelector('input[name="format"]:checked').value==='sprint')questions=questions.slice(0,10);index=0;answers=Array(questions.length).fill(null);gradedResults=Array(questions.length).fill(null);document.getElementById('quizSubject').textContent=LABELS[subject];go('quiz');renderQuestion()}catch(e){alert('Не удалось загрузить тест. Проверь соединение, обнови страницу и попробуй ещё раз.')}finally{busy=false;btn.disabled=false;btn.textContent='Начать тренировку ↗'}}
-function renderQuestion(){const q=questions[index];document.getElementById('counter').textContent=`Вопрос ${index+1} из ${questions.length}`;document.getElementById('qNum').textContent=`ВОПРОС ${String(index+1).padStart(2,'0')}`;document.getElementById('progressFill').style.width=`${index/questions.length*100}%`;document.getElementById('questionText').textContent=q.q;document.getElementById('qType').textContent=q.opts?'Выбери ответ':'Открытый вопрос';const area=document.getElementById('answerArea');area.innerHTML='';if(q.opts){const wrap=document.createElement('div');wrap.className='answers';q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='answer'+(answers[index]===i?' selected':'');b.setAttribute('aria-pressed',answers[index]===i);b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${escapeHtml(o)}</span>`;b.onclick=()=>{answers[index]=i;renderQuestion()};wrap.appendChild(b)});area.appendChild(wrap)}else{const t=document.createElement('textarea');t.placeholder=subject==='history'?'Напиши свой ответ…':'Javobingizni shu yerga yozing…';t.value=answers[index]||'';t.maxLength=2000;t.autocomplete='off';t.setAttribute('autocapitalize','sentences');t.oninput=()=>answers[index]=t.value;area.appendChild(t);const hint=document.createElement('div');hint.className='hint';hint.textContent='Краткий ответ своими словами. ИИ оценит смысл ответа и допустимые формулировки.';area.appendChild(hint)}document.getElementById('backQuestion').disabled=index===0;document.getElementById('nextQuestion').textContent=index===questions.length-1?'Завершить ✓':'Ответить →'}
+async function startQuiz() {
+    if (busy) return;
+
+    busy = true;
+
+    const btn = document.getElementById('startBtn');
+    btn.disabled = true;
+    btn.textContent = 'Загрузка…';
+
+    try {
+        trainingMode =
+            document.querySelector('input[name="studyMode"]:checked').value
+            === 'learning';
+
+        const endpoint = trainingMode
+            ? `/api/learning-questions/${encodeURIComponent(subject)}`
+            : `/api/questions/${encodeURIComponent(subject)}`;
+
+        const response = await fetch(endpoint);
+
+        if (!response.ok) {
+            throw new Error('Не удалось загрузить вопросы');
+        }
+
+        questions = await response.json();
+
+        if (
+            document.querySelector('input[name="order"]:checked').value
+            === 'random'
+        ) {
+            shuffle(questions);
+        }
+
+        if (
+            document.querySelector('input[name="format"]:checked').value
+            === 'sprint'
+        ) {
+            questions = questions.slice(0, 10);
+        }
+
+        index = 0;
+        answers = Array(questions.length).fill(null);
+        gradedResults = Array(questions.length).fill(null);
+        revealedAnswers = new Set();
+
+        document.getElementById('quizSubject').textContent =
+            LABELS[subject];
+
+        document.getElementById('qType').textContent =
+            trainingMode ? 'Режим обучения' : 'Тестирование';
+
+        go('quiz');
+        renderQuestion();
+
+    } catch (e) {
+        alert(
+            'Не удалось загрузить вопросы. Проверь соединение и попробуй ещё раз.'
+        );
+    } finally {
+        busy = false;
+        btn.disabled = false;
+        btn.textContent = 'Начать тренировку ↗';
+    }
+}
+function renderQuestion() {
+    const q = questions[index];
+
+    document.getElementById('counter').textContent =
+        `Вопрос ${index + 1} из ${questions.length}`;
+
+    document.getElementById('qNum').textContent =
+        `ВОПРОС ${String(index + 1).padStart(2, '0')}`;
+
+    document.getElementById('progressFill').style.width =
+        `${(index + 1) / questions.length * 100}%`;
+
+    document.getElementById('questionText').textContent = q.q;
+
+    document.getElementById('qType').textContent = trainingMode
+        ? 'Обучение'
+        : (q.opts ? 'Выбери ответ' : 'Открытый вопрос');
+
+    const area = document.getElementById('answerArea');
+    area.innerHTML = '';
+
+    if (q.opts) {
+        const wrap = document.createElement('div');
+        wrap.className = 'answers';
+
+        q.opts.forEach((option, i) => {
+            const button = document.createElement('button');
+            button.className = 'answer';
+
+            const isSelected = answers[index] === i;
+            const isCorrect = trainingMode && i === q.correct;
+            const answered = answers[index] !== null;
+
+            if (trainingMode && answered) {
+                if (isCorrect) {
+                    button.classList.add('study-correct');
+                }
+
+                if (isSelected && !isCorrect) {
+                    button.classList.add('study-wrong');
+                }
+            } else if (isSelected) {
+                button.classList.add('selected');
+            }
+
+            button.setAttribute('aria-pressed', isSelected);
+
+            const letter = document.createElement('span');
+            letter.className = 'letter';
+            letter.textContent = String.fromCharCode(65 + i);
+
+            const text = document.createElement('span');
+            text.textContent = option;
+
+            button.append(letter, text);
+
+            button.disabled = trainingMode && answered;
+
+            button.onclick = () => {
+                answers[index] = i;
+                renderQuestion();
+            };
+
+            wrap.appendChild(button);
+        });
+
+        area.appendChild(wrap);
+
+        if (trainingMode && answers[index] !== null) {
+            const correct = answers[index] === q.correct;
+
+            const feedback = document.createElement('div');
+            feedback.className =
+                `study-feedback ${correct ? 'good' : 'bad'}`;
+
+            feedback.textContent = correct
+                ? '✓ Правильно! Отличный ответ.'
+                : '✕ Неправильно. Зелёным отмечен правильный вариант.';
+
+            area.appendChild(feedback);
+        }
+
+    } else {
+        const textarea = document.createElement('textarea');
+
+        textarea.placeholder = 'Напиши свой ответ…';
+        textarea.value = answers[index] || '';
+        textarea.maxLength = 2000;
+        textarea.autocomplete = 'off';
+
+        textarea.oninput = () => {
+            answers[index] = textarea.value;
+        };
+
+        area.appendChild(textarea);
+
+        if (trainingMode) {
+            const revealButton = document.createElement('button');
+
+            revealButton.className = 'btn secondary';
+            revealButton.style.marginTop = '12px';
+            revealButton.textContent = revealedAnswers.has(index)
+                ? 'Скрыть правильный ответ'
+                : 'Показать правильный ответ';
+
+            revealButton.onclick = () => {
+                if (revealedAnswers.has(index)) {
+                    revealedAnswers.delete(index);
+                } else {
+                    revealedAnswers.add(index);
+                }
+
+                renderQuestion();
+            };
+
+            area.appendChild(revealButton);
+
+            if (revealedAnswers.has(index)) {
+                const reference = document.createElement('div');
+                reference.className = 'study-feedback good';
+
+                const heading = document.createElement('strong');
+                heading.textContent = 'Правильный ответ:';
+
+                const answerText = document.createElement('div');
+                answerText.className = 'study-reference';
+                answerText.textContent = q.a || 'Эталонный ответ не указан.';
+
+                reference.append(heading, answerText);
+                area.appendChild(reference);
+            }
+        } else {
+            const hint = document.createElement('div');
+            hint.className = 'hint';
+            hint.textContent =
+                'Напиши ответ своими словами. ИИ оценит его смысл.';
+            area.appendChild(hint);
+        }
+    }
+
+    document.getElementById('backQuestion').disabled = index === 0;
+
+    document.getElementById('nextQuestion').textContent =
+        index === questions.length - 1
+            ? (trainingMode ? 'Завершить обучение ✓' : 'Завершить ✓')
+            : 'Далее →';
+}
 function previousQuestion(){if(index>0){index--;renderQuestion();window.scrollTo({top:0})}}
-function nextQuestion(){if(index<questions.length-1){index++;renderQuestion();window.scrollTo({top:0})}else finishQuiz()}
-async function finishQuiz(){const nextBtn=document.getElementById('nextQuestion');nextBtn.disabled=true;nextBtn.textContent='Проверяем ответы…';document.getElementById('backQuestion').disabled=true;document.getElementById('progressFill').style.width='100%';try{for(let i=0;i<questions.length;i++){if(gradedResults[i])continue;const response=await fetch('/api/check-answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({subject,question_id:questions[i].id,answer:answers[i]})});const result=await response.json();if(!response.ok)throw new Error(result.error||'Не удалось проверить ответ');gradedResults[i]=result;nextBtn.textContent=`Проверяем ответы… ${i+1}/${questions.length}`}const correct=gradedResults.filter(x=>x&&x.correct).length;const percent=Math.round(correct/questions.length*100);document.getElementById('scoreNumber').textContent=correct;document.getElementById('scoreTotal').textContent=questions.length;document.getElementById('correctStat').textContent=correct;document.getElementById('wrongStat').textContent=questions.length-correct;document.getElementById('percentStat').textContent=percent+'%';if(percent>=75){document.getElementById('resultTitle').textContent='Отличная работа!';document.getElementById('resultCopy').textContent='Ты хорошо подготовлен. Продолжай в том же духе — ещё немного практики, и результат станет ещё лучше.'}else{document.getElementById('resultTitle').textContent='Вы не готовы, учитесь!';document.getElementById('resultCopy').textContent='Не расстраивайся: ошибки показывают, что нужно повторить. Разбери ответы и попробуй ещё раз.'}document.getElementById('review').style.display='none';document.getElementById('reviewList').innerHTML='';go('results')}catch(e){alert('Не удалось проверить ответы: '+e.message+' Попробуй завершить тест ещё раз.')}finally{nextBtn.disabled=false;document.getElementById('backQuestion').disabled=index===0;nextBtn.textContent=index===questions.length-1?'Завершить ✓':'Ответить →'}}
+function nextQuestion() {
+    if (index < questions.length - 1) {
+        index++;
+        renderQuestion();
+        window.scrollTo({ top: 0 });
+        return;
+    }
+
+    if (trainingMode) {
+        alert('Обучение завершено! Можешь начать заново или выбрать другой предмет.');
+        go('subjects');
+        return;
+    }
+
+    finishQuiz();
+}async function finishQuiz(){const nextBtn=document.getElementById('nextQuestion');nextBtn.disabled=true;nextBtn.textContent='Проверяем ответы…';document.getElementById('backQuestion').disabled=true;document.getElementById('progressFill').style.width='100%';try{for(let i=0;i<questions.length;i++){if(gradedResults[i])continue;const response=await fetch('/api/check-answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({subject,question_id:questions[i].id,answer:answers[i]})});const result=await response.json();if(!response.ok)throw new Error(result.error||'Не удалось проверить ответ');gradedResults[i]=result;nextBtn.textContent=`Проверяем ответы… ${i+1}/${questions.length}`}const correct=gradedResults.filter(x=>x&&x.correct).length;const percent=Math.round(correct/questions.length*100);document.getElementById('scoreNumber').textContent=correct;document.getElementById('scoreTotal').textContent=questions.length;document.getElementById('correctStat').textContent=correct;document.getElementById('wrongStat').textContent=questions.length-correct;document.getElementById('percentStat').textContent=percent+'%';if(percent>=75){document.getElementById('resultTitle').textContent='Отличная работа!';document.getElementById('resultCopy').textContent='Ты хорошо подготовлен. Продолжай в том же духе — ещё немного практики, и результат станет ещё лучше.'}else{document.getElementById('resultTitle').textContent='Вы не готовы, учитесь!';document.getElementById('resultCopy').textContent='Не расстраивайся: ошибки показывают, что нужно повторить. Разбери ответы и попробуй ещё раз.'}document.getElementById('review').style.display='none';document.getElementById('reviewList').innerHTML='';go('results')}catch(e){alert('Не удалось проверить ответы: '+e.message+' Попробуй завершить тест ещё раз.')}finally{nextBtn.disabled=false;document.getElementById('backQuestion').disabled=index===0;nextBtn.textContent=index===questions.length-1?'Завершить ✓':'Ответить →'}}
 function showReview(){const r=document.getElementById('review');const open=r.style.display==='none';r.style.display=open?'block':'none';const list=document.getElementById('reviewList');list.innerHTML='';questions.forEach((q,i)=>{const result=gradedResults[i]||{};const ok=!!result.correct;const given=q.opts?(answers[i]===null?'Нет ответа':q.opts[answers[i]]):(answers[i]||'Нет ответа');const div=document.createElement('div');div.className='review-item';div.innerHTML=`<div class="r-question">${i+1}. ${escapeHtml(q.q)}</div><p class="${ok?'correct':'incorrect'}">${ok?'✓ Верно':'✕ Нужно повторить'}</p><p>Твой ответ: ${escapeHtml(String(given))}</p><p>Ответ по ключу: <strong style="color:var(--text)">${escapeHtml(result.correct_answer||'—')}</strong></p>${result.feedback?`<p>${escapeHtml(result.feedback)}</p>`:''}`;list.appendChild(div)});if(open)r.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'})}
 function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function retryQuiz(){startQuiz()}
