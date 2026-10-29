@@ -2,8 +2,6 @@
 import json
 import logging
 import os
-import time
-from collections import defaultdict, deque
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -33,22 +31,6 @@ client = Groq(
 with (BASE_DIR / "questions.json").open("r", encoding="utf-8") as file:
     QUESTION_BANK = json.load(file)
 
-REQUESTS_PER_MINUTE = int(os.getenv("CHECKS_PER_MINUTE", "30"))
-_recent_checks = defaultdict(deque)
-
-
-def rate_limited(ip: str) -> bool:
-    now = time.time()
-    events = _recent_checks[ip]
-
-    while events and now - events[0] > 60:
-        events.popleft()
-
-    if len(events) >= REQUESTS_PER_MINUTE:
-        return True
-
-    events.append(now)
-    return False
 
 
 SYSTEM_PROMPT = """
@@ -223,10 +205,6 @@ def check_answer():
     if question is None:
         return jsonify({"error": "Вопрос не найден"}), 404
 
-    if rate_limited(request.remote_addr or "unknown"):
-        return jsonify({
-            "error": "Слишком много проверок. Подожди минуту и попробуй снова."
-        }), 429
 
     # Вопросы с вариантами ответов проверяем без ИИ.
     if "opts" in question:
