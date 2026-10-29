@@ -95,6 +95,19 @@ h2{font-size:clamp(26px,6.5vw,42px);letter-spacing:-.045em;line-height:1.1;margi
     margin-top: 8px;
     white-space: pre-wrap;
 }
+.subject[data-subject="english"] .emoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 28px;
+    border-radius: 6px;
+    background: #1d3f8b;
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
 .actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.actions .btn{min-width:150px}
 .quiz-wrap{max-width:760px;margin:auto}
 .quiz-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:var(--muted);font-size:13px}
@@ -158,7 +171,7 @@ textarea:focus{border-color:var(--accent)}textarea::placeholder{color:#6f7889}
   <button class="subject" data-subject="biology" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🧬</span><strong>Biologiya</strong><small>Organizm va tabiat</small></button>
   <button class="subject" data-subject="chemistry" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">⚗️</span><strong>Kimyo</strong><small>Elementlar va reaksiyalar</small></button>
   <button class="subject" data-subject="history" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🌍</span><strong>История</strong><small>Мир и цивилизации</small></button>
-  <button class="subject" data-subject="english" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">🇬🇧</span><strong>English</strong><small>Grammar, vocabulary and reading</small></button>
+  <button class="subject" data-subject="english" onclick="chooseSubject(this)"><span class="checkmark">✓</span><span class="emoji">EN</span><strong>English</strong><small>Grammar, vocabulary and reading</small></button>
  </div>
  <div class="actions"><button class="btn secondary" onclick="go('welcome')">← Назад</button><button class="btn" onclick="go('mode')">Продолжить →</button></div>
 </section>
