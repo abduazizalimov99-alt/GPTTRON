@@ -184,6 +184,28 @@ def get_questions(subject):
 
     return jsonify(public_questions)
 
+@app.get("/api/learning-questions/<subject>")
+def get_learning_questions(subject):
+    if subject not in QUESTION_BANK:
+        return jsonify({"error": "Неизвестный предмет"}), 404
+
+    public_questions = []
+
+    for q in QUESTION_BANK[subject]:
+        item = {
+            "id": q["id"],
+            "q": q["q"],
+            "a": q.get("a", "")
+        }
+
+        if "opts" in q:
+            item["opts"] = q["opts"]
+            item["correct"] = q["correct"]
+
+        public_questions.append(item)
+
+    return jsonify(public_questions)
+
 
 @app.post("/api/check-answer")
 def check_answer():
